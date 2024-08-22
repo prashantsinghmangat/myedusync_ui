@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { catchError, finalize, of, take, tap } from 'rxjs';
+import { catchError, finalize, of, tap } from 'rxjs';
 import {
   ApiError,
   ApiPreviewPost,
@@ -79,51 +79,49 @@ export class FeedComponent {
   readonly loadingUserStatsSig = signal(false);
   readonly loadingGlobalStatsSig = signal(false);
 
-  private triggerId: number | null = null;
-  private hasMore = true;
   private readonly limit = 10;
 
   constructor(
     private readonly postsService: PostsService,
     private readonly userService: UserService,
   ) {
-    this.getAllNotes();
-    // this.loadPosts();
-    // this.loadStats();
+    this.getAllNotes(this.selectedBoard, this.selectedClass, this.selectedSubject);
   }
 
   onBoardChange(event: Event) {
+
     const board = (event.target as HTMLSelectElement).value as Board;
     this.selectedBoard = board;
+    console.log("board selected: ", this.selectedBoard);
     this.classes = this.data[board]?.classes ?? [];
     this.selectedClass = null;
     this.subjects = [];
+
+    this.getAllNotes(this.selectedBoard, this.selectedClass, this.selectedSubject);
   }
 
   onClassChange(event: Event) {
+
     const selectedClass = +(event.target as HTMLSelectElement).value;
     this.selectedClass = selectedClass;
+    console.log("class selected: ", this.selectedClass);
     if (this.selectedBoard) {
       this.subjects = this.data[this.selectedBoard]?.subjects[selectedClass] ?? [];
+      this.getAllNotes(this.selectedBoard, this.selectedClass, this.selectedSubject);
     }
   }
 
   onSubjectChange(event: Event) {
     const subject = (event.target as HTMLSelectElement).value;
     this.selectedSubject = subject;
+    console.log("subject selected: ", this.selectedSubject);
+    this.getAllNotes(this.selectedBoard, this.selectedClass, this.selectedSubject);
   }
 
-  loaded(id: number) {
-    if (this.triggerId === id) {
-      this.loadPosts(this.postsSig().length);
-    }
-  }
-
- 
-  private getAllNotes(): void {
+  private getAllNotes(board: any, classdata: any, subject: any): void {
     this.loadingPostsSig.set(true);
 
-    this.postsService.getAllNotes().pipe(
+    this.postsService.getAllNotes(board, classdata, subject).pipe(
       tap((posts) => {
         console.log("API response: ", posts);
         this.postData = posts;
@@ -133,8 +131,6 @@ export class FeedComponent {
           ...postsResponse.posts,
         ]);
 
-        this.triggerId = postsResponse.posts[postsResponse.posts.length - 1]?.postId;
-        this.hasMore = postsResponse.hasMore;
       }),
       catchError((error: ApiError) => {
         console.error("Error fetching posts: ", error);
@@ -145,55 +141,5 @@ export class FeedComponent {
       })
     ).subscribe();
   }
-  private loadPosts = (offset = 0) => {
-    if (!this.hasMore) return;
-    this.loadingPostsSig.set(true);
-    this.postsService
-      .getPosts(this.limit, offset)
-      .pipe(
-        tap((posts) => {
-          const postsResponse = posts as ApiPreviewPosts;
-          this.postsSig.update((oldPosts) => [
-            ...oldPosts,
-            ...postsResponse.posts,
-          ]);
-          this.triggerId =
-            postsResponse.posts[postsResponse.posts.length - 1]?.postId;
-          this.hasMore = postsResponse.hasMore;
-          this.loadingPostsSig.set(false);
-        }),
-        catchError((e: ApiError) => {
-          return of(e);
-        }),
-      )
-      .subscribe();
-  };
 
-  private loadStats() {
-    this.loadingUserStatsSig.set(true);
-    this.loadingGlobalStatsSig.set(true);
-    this.userService
-      .getUserStatistics()
-      .pipe(
-        take(1),
-        tap((res) => {
-          if ('isError' in res) return;
-          this.userStatsSig.set(res);
-          this.loadingUserStatsSig.set(false);
-        }),
-      )
-      .subscribe();
-
-    this.postsService
-      .getStatistics()
-      .pipe(
-        take(1),
-        tap((res) => {
-          if ('isError' in res) return;
-          this.globalStatsSig.set(res);
-          this.loadingGlobalStatsSig.set(false);
-        }),
-      )
-      .subscribe();
-  }
 }

@@ -28,8 +28,8 @@ export class PostsService {
       .pipe(catchError((e) => this.errorHandlingService.handleError(e)));
   }
 
-  getAllNotes() {
-    return this.http.get<ApiPreviewPosts>(`${environment.awsbaseUrl}/all-notes`,)
+  getAllNotes(board: any, classdata: any, subject: any) {
+    return this.http.get<ApiPreviewPosts>(`${environment.awsbaseUrl}/all-notes/?page=0&limit=10&board=${board}&class=${classdata}&subject=${subject}`,)
       .pipe(catchError((e) => this.errorHandlingService.handleError(e)));
   }
 
