@@ -9,4 +9,6 @@ export const environment = {
   linkedinClientId: '77mc358dc7r7to',
   linkedinRedirectUri: 'https://learnedtoday.app/auth/oauth/linkedin/callback',
   googleAnalyticsTrackingCode: 'G-SW145JPX3Y',
+
+  awsbaseUrl: 'http://ec2-13-126-94-172.ap-south-1.compute.amazonaws.com:8000',
 };

@@ -20,7 +20,7 @@ export class PostsService {
   constructor(
     private http: HttpClient,
     private errorHandlingService: ErrorHandlerService,
-  ) {}
+  ) { }
 
   createPost(body: { content: string; title: string }) {
     return this.http
@@ -28,11 +28,13 @@ export class PostsService {
       .pipe(catchError((e) => this.errorHandlingService.handleError(e)));
   }
 
+  getAllNotes() {
+    return this.http.get<ApiPreviewPosts>(`${environment.awsbaseUrl}/all-notes`,)
+      .pipe(catchError((e) => this.errorHandlingService.handleError(e)));
+  }
+
   getPosts(limit: number, offset: number) {
-    return this.http
-      .get<ApiPreviewPosts>(
-        `${environment.baseUrl}/api/posts/preview?limit=${limit}&offset=${offset}`,
-      )
+    return this.http.get<ApiPreviewPosts>(`${environment.baseUrl}/api/posts/preview?limit=${limit}&offset=${offset}`,)
       .pipe(catchError((e) => this.errorHandlingService.handleError(e)));
   }
 
