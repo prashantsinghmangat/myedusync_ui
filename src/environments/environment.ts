@@ -11,4 +11,5 @@ export const environment = {
   googleAnalyticsTrackingCode: 'G-SW145JPX3Y',
 
   awsbaseUrl: 'http://ec2-13-126-94-172.ap-south-1.compute.amazonaws.com:8000',
+  wordpressUrl: 'https://myedusync.com/wp-json/wp/v2/posts',
 };

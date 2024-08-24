@@ -33,6 +33,11 @@ export class PostsService {
       .pipe(catchError((e) => this.errorHandlingService.handleError(e)));
   }
 
+  getAllNotesWordpress() {
+    return this.http.get<ApiPreviewPosts>(`${environment.wordpressUrl}?_embed&per_page=12`,)
+      .pipe(catchError((e) => this.errorHandlingService.handleError(e)));
+  }
+
   getPosts(limit: number, offset: number) {
     return this.http.get<ApiPreviewPosts>(`${environment.baseUrl}/api/posts/preview?limit=${limit}&offset=${offset}`,)
       .pipe(catchError((e) => this.errorHandlingService.handleError(e)));

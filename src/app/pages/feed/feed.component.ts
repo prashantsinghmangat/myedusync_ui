@@ -85,7 +85,8 @@ export class FeedComponent {
     private readonly postsService: PostsService,
     private readonly userService: UserService,
   ) {
-    this.getAllNotes(this.selectedBoard, this.selectedClass, this.selectedSubject);
+    // this.getAllNotes(this.selectedBoard, this.selectedClass, this.selectedSubject);
+    this.getAllNotes();
   }
 
   onBoardChange(event: Event) {
@@ -97,7 +98,8 @@ export class FeedComponent {
     this.selectedClass = null;
     this.subjects = [];
 
-    this.getAllNotes(this.selectedBoard, this.selectedClass, this.selectedSubject);
+    // this.getAllNotes(this.selectedBoard, this.selectedClass, this.selectedSubject);
+    this.getAllNotes();
   }
 
   onClassChange(event: Event) {
@@ -107,7 +109,8 @@ export class FeedComponent {
     console.log("class selected: ", this.selectedClass);
     if (this.selectedBoard) {
       this.subjects = this.data[this.selectedBoard]?.subjects[selectedClass] ?? [];
-      this.getAllNotes(this.selectedBoard, this.selectedClass, this.selectedSubject);
+      // this.getAllNotes(this.selectedBoard, this.selectedClass, this.selectedSubject);
+      this.getAllNotes();
     }
   }
 
@@ -115,13 +118,16 @@ export class FeedComponent {
     const subject = (event.target as HTMLSelectElement).value;
     this.selectedSubject = subject;
     console.log("subject selected: ", this.selectedSubject);
-    this.getAllNotes(this.selectedBoard, this.selectedClass, this.selectedSubject);
+    // this.getAllNotes(this.selectedBoard, this.selectedClass, this.selectedSubject);
+    this.getAllNotes();
   }
 
-  private getAllNotes(board: any, classdata: any, subject: any): void {
+  // private getAllNotes(board: any, classdata: any, subject: any): void {
+  private getAllNotes(): void {
     this.loadingPostsSig.set(true);
 
-    this.postsService.getAllNotes(board, classdata, subject).pipe(
+    // this.postsService.getAllNotes(board, classdata, subject).pipe(
+    this.postsService.getAllNotesWordpress().pipe(
       tap((posts) => {
         console.log("API response: ", posts);
         this.postData = posts;

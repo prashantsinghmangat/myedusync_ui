@@ -30,7 +30,7 @@ export class NavbarComponent {
     private readonly router: Router,
     @Inject(PLATFORM_ID) private readonly platformId: string,
   ) {
-    this.loadUser();
+    // this.loadUser();
   }
 
   logout(): void {
