@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
-import { catchError, of, tap } from 'rxjs';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, signal } from '@angular/core';
+import { catchError, of, tap,finalize } from 'rxjs';
 import { ApiError } from '../../core/models/api.model';
 import { PostsService } from '../../core/services/posts.service';
 import { UserService } from '../../core/services/user.service';
@@ -26,6 +26,9 @@ interface DataStructure {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FeedComponent {
+
+  readonly loadingPostsSig = signal(false);
+
   data: Record<Board, DataStructure> = {
     CBSE: this.createDataStructure(),
     ICSE: this.createDataStructure(),
@@ -73,6 +76,7 @@ export class FeedComponent {
   }
 
   private getAllNotes(): void {
+    this.loadingPostsSig.set(true);
     this.postsService.getAllNotesWordpress().pipe(
       tap((posts) => {
         this.postData = posts;
@@ -81,6 +85,9 @@ export class FeedComponent {
       catchError((error: ApiError) => {
         console.error("Error fetching posts: ", error);
         return of(error);
+      }),
+      finalize(() => {
+        this.loadingPostsSig.set(false);
       })
     ).subscribe();
   }
