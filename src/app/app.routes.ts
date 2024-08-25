@@ -52,6 +52,12 @@ export const routes: Routes = [
     title: 'AboutUs',
   },
   {
+    path: 'notes-detail/:id',
+    loadComponent: () =>
+      import('./pages/feed/components/notes-detail/notes-details.component').then((m) => m.NotesDetailComponent),
+    title: 'Note Detail',
+  },
+  {
     path: 'legal/terms-of-service',
     loadComponent: () =>
       import('./pages/terms-of-service/terms-of-service.component').then(

@@ -60,24 +60,26 @@
     </div>
 
     <div class="row g-4 justify-content-center">
-
       <div *ngFor="let item of postData" class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
         <div class="blog-item">
           <div class="blog-img">
-            <img src="img/blog-1.png" class="img-fluid w-100" alt="">
-            <div class="blog-info">
-              <span><i class="fa fa-clock"></i> {{item.created_at }}</span>
+            <img *ngIf="item?._embedded?.['wp:featuredmedia']?.[0]?.source_url" alt="Feature Image" class="img-fluid w-100"
+              [src]="item._embedded?.['wp:featuredmedia']?.[0]?.source_url">
+            <!-- <img *ngIf="item?.imageLink" [src]="item?.imageLink" alt="Feature Image" class="main-img"> -->
+            <!-- <img src="img/blog-1.png" class="img-fluid w-100" alt=""> -->
+            <!-- <div class="blog-info">
+              <span><i class="fa fa-clock"></i> {{ item.created_at }}</span>
               <div class="d-flex">
-                <span class="me-3"> 3 <i class="fa fa-heart"></i></span>
+                <span class="me-3">3 <i class="fa fa-heart"></i></span>
                 <a href="#" class="text-white">0 <i class="fa fa-comment"></i></a>
               </div>
-            </div>
+            </div> -->
           </div>
-          <div class="blog-content text-dark border p-4 ">
-            <h5 class="mb-4">{{item.title.rendered}}</h5>
-            <p class="mb-4">{{item.content}}</p>
-            <p class="mb-4">{{item.created_at}}</p>
-            <a class="btn btn-light rounded-pill py-2 px-4" href="#">Read More</a>
+          <div class="blog-content text-dark border p-4">
+            <h5 class="mb-4">{{ item?.title?.rendered }}</h5>
+            <p class="mb-4">{{ item?.content }}</p>
+            <p class="mb-4">{{ item?.created_at }}</p>
+            <a class="btn btn-light rounded-pill py-2 px-4" [routerLink]="['/notes-detail', item.slug]">Read More</a>
           </div>
         </div>
       </div>
