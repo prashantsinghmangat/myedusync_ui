@@ -46,9 +46,15 @@ export const routes: Routes = [
       import('./pages/post/post.component').then((m) => m.PostComponent),
   },
   {
-    path: 'aboutus',
+    path: 'about-us',
     loadComponent: () =>
       import('./pages/home/components/about-us/about-us.component').then((m) => m.AboutUsComponent),
+    title: 'AboutUs',
+  },
+  {
+    path: 'tutor-page',
+    loadComponent: () =>
+      import('./pages/home/components/tutor-page/tutor-page.component').then((m) => m.TutorPageComponent),
     title: 'AboutUs',
   },
   {
