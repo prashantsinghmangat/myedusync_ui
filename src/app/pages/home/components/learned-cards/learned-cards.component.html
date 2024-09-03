@@ -1,18 +1,221 @@
-<section
-  class="grid grid-cols-4 justify-between gap-4 px-8 py-24 max-xl:grid-cols-2 max-xl:overflow-hidden max-xl:px-6 max-md:px-4 max-xs:grid-cols-1"
->
+<section style="padding-top: 6rem;"
+  class="grid grid-cols-4 justify-between gap-4 px-8 max-xl:grid-cols-2 max-xl:overflow-hidden max-xl:px-6 max-md:px-4 max-xs:grid-cols-1">
   @for (item of staggeringItems; track $index) {
-    <div
-      class="rounded-xl p-8 shadow-xl"
-      [class]="item.color"
-      [@flyInOut]="'in'"
-      [@hoverAnimation]="item.hoverState"
-      (@flyInOut.done)="doNext()"
-      (mouseenter)="onMouseEnter(item)"
-      (mouseleave)="onMouseLeave(item)"
-    >
-      <h2 class="text-4xl font-bold">{{ item.count }}</h2>
-      <p class="text-xl font-bold">{{ item.text }}</p>
-    </div>
+  <div class="rounded-xl p-8 shadow-xl" [class]="item.color" [@flyInOut]="'in'" [@hoverAnimation]="item.hoverState"
+    (@flyInOut.done)="doNext()" (mouseenter)="onMouseEnter(item)" (mouseleave)="onMouseLeave(item)">
+    <h2 class="text-4xl font-bold">{{ item.count }}</h2>
+    <p class="text-xl font-bold">{{ item.text }}</p>
+  </div>
   }
+</section>
+
+<section id="team">
+  <div class="container my-3 py-5 text-center">
+    <div class="row mb-5">
+      <div class="col">
+        <h1>Top Tutors</h1>
+        <!-- <p class="my-3">
+          This team page has a quirky, vibrant energy that immediately catches your attention – a good
+          sign for a design company.
+        </p> -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="teacher-card">
+        <div class="teacher-image">
+          <img src="../../../../../assets/tutorPhotos/Divya.jpeg" alt="Divya Darshi" />
+        </div>
+        <div class="teacher-details">
+          <div class="rate">₹1500/hr</div>
+          <div class="rating">
+            <span>4.9</span>
+            <span class="star">⭐</span>
+          </div>
+          <div class="subject">Mathematics</div>
+          <div class="name">Divya Darshi</div>
+          <div class="experience">2000 Hr Teaching Experience</div>
+          <button class="connect_button">Connect</button>
+        </div>
+      </div>
+
+      <!-- Second teacher -->
+      <div class="teacher-card">
+        <div class="teacher-image">
+          <img src="../../../../../assets/tutorPhotos/aman.jpeg" alt="Divya Darshi" />
+        </div>
+        <div class="teacher-details">
+          <div class="rate">₹1500/hr</div>
+          <div class="rating">
+            <span>4.9</span>
+            <span class="star">⭐</span>
+          </div>
+          <div class="subject">Mathematics</div>
+          <div class="name">Divya Darshi</div>
+          <div class="experience">2000 Hr Teaching Experience</div>
+          <button class="connect_button">Connect</button>
+        </div>
+      </div>
+
+      <!-- Third teacher -->
+      <div class="teacher-card">
+        <div class="teacher-image">
+          <img src="../../../../../assets/tutorPhotos/kamlesh.jpeg" alt="Divya Darshi" />
+        </div>
+        <div class="teacher-details">
+          <div class="rate">₹1500/hr</div>
+          <div class="rating">
+            <span>4.9</span>
+            <span class="star">⭐</span>
+          </div>
+          <div class="subject">Mathematics</div>
+          <div class="name">Divya Darshi</div>
+          <div class="experience">2000 Hr Teaching Experience</div>
+          <button class="connect_button">Connect</button>
+        </div>
+      </div>
+
+      <!-- Fouth teacher -->
+
+      <div class="teacher-card">
+        <div class="teacher-image">
+          <img src="../../../../../assets/tutorPhotos/Divya.jpeg" alt="Divya Darshi" />
+        </div>
+        <div class="teacher-details">
+          <div class="rate">₹1500/hr</div>
+          <div class="rating">
+            <span>4.9</span>
+            <span class="star">⭐</span>
+          </div>
+          <div class="subject">Mathematics</div>
+          <div class="name">Divya Darshi</div>
+          <div class="experience">2000 Hr Teaching Experience</div>
+          <button class="connect_button">Connect</button>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- <div class="row">
+
+
+
+      <div class="col-lg-3 col-md-6 pt-1">
+        <div class="card h-100">
+          <div class="card-body">
+            <img class="img-fouild rounded mb-3" style="height: 250px;"
+              src="../../../../../assets/tutorPhotos/Divya.jpeg" alt="Sophie">
+            <h3>Divya Darshi</h3>
+            <h5>Mathematics</h5>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi, recusandae.</p>
+            <div class="d-flex flex-row justify-content-center">
+              <div class="p-4">
+                <a href="#">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </div>
+              <div class="p-4">
+                <a href="#">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </div>
+              <div class="p-4">
+                <a href="#">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 pt-1">
+        <div class="card h-100">
+          <div class="card-body">
+            <img class="img-fouild rounded mb-3" style="height: 250px;"
+              src="../../../../../assets/tutorPhotos/aman.jpeg" alt="lucy">
+            <h3>Aman Kumar</h3>
+            <h5>FrontEnd Developer</h5>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi, recusandae.</p>
+            <div class="d-flex flex-row justify-content-center">
+              <div class="p-4">
+                <a href="#">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </div>
+              <div class="p-4">
+                <a href="#">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </div>
+              <div class="p-4">
+                <a href="#">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 pt-1">
+        <div class="card h-100">
+          <div class="card-body">
+            <img class="img-fouild rounded mb-3" style="height: 250px;"
+              src="../../../../../assets/tutorPhotos/kamlesh.jpeg" alt="Brad">
+            <h3>Kamlesh</h3>
+            <h5>Scrum Master</h5>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi, recusandae.</p>
+            <div class="d-flex flex-row justify-content-center">
+              <div class="p-4">
+                <a href="#">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </div>
+              <div class="p-4">
+                <a href="#">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </div>
+              <div class="p-4">
+                <a href="#">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 pt-1">
+        <div class="card h-100">
+          <div class="card-body">
+            <img class="img-fouild rounded mb-3" style="height: 250px;"
+              src="../../../../../assets/tutorPhotos/Divya.jpeg" alt="andres">
+            <h3>Divya Darshi</h3>
+            <h5>Software Engineer</h5>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi, recusandae.</p>
+            <div class="d-flex flex-row justify-content-center">
+              <div class="p-4">
+                <a href="#">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </div>
+              <div class="p-4">
+                <a href="#">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </div>
+              <div class="p-4">
+                <a href="#">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
 </section>

@@ -1,0 +1,30 @@
+<section class="blog-detail-section list-section pt-20">
+  <div class="container-fluid  container-xxl">
+    <nav aria-label="breadcrumb" class="breadcrumb-section d-flex justify-content-between mb-2">
+      <ol class="breadcrumb align-items-center">
+        <li class="breadcrumb-item d-flex align-items-center">
+          <a routerLink="">Home </a>
+          <i class=" breadcrumb-arrow-right sprite-img-list ms-2"></i>
+        </li>
+        <li class="breadcrumb-item d-flex align-items-center">
+          <a routerLink="/feed">Blogs </a>
+          <i class=" breadcrumb-arrow-right sprite-img-list ms-2"></i>
+        </li>
+        <li class="breadcrumb-item active"> {{noteData?.title}}
+        </li>
+      </ol>
+    </nav>
+
+    <div class="row blog-details">
+      <div class="col-sm-9 blog-height-blank">
+        <p class="blog-date pt-20">{{noteData?.date}}</p>
+        <h1 class="section-heading-4">{{ noteData?.title }}</h1>
+        <div class="blog-content pt-30">
+          <img *ngIf="noteData?.featureImage" alt="Feature Image" class="img-fluid mb-50 w-100"
+            [src]="noteData?.featureImage"><div class="blog-content" [innerHTML]="noteData?.content"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

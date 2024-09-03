@@ -1,0 +1,224 @@
+// Define colors
+$primary-color: #d4d789; // Dark Blue
+$secondary-color: #e74c3c; // Red
+$accent-color: #ffe270; // Yellow
+$background-light: #ffffff; // Light Grey
+$text-dark: #34495e; // Dark Text
+$text-light: #ffffff; // Light Text
+
+
+
+// Hero Section
+.hero-section {
+  text-align: center;
+  padding: 8rem 2rem; // Increased padding for spacious feel
+  //background: url('https://www.graduateprogram.org/wp-content/uploads/2020/01/Jan.-16-What-is-a-Behavior-Management-Plan-in-the-Classroom_web-1024x682.jpg') no-repeat center center fixed; // Full-page background image
+ // background-size: cover;
+  color: $text-dark;
+  
+  h1 {
+    font-size: 4rem; // Increased font size
+    color: $text-dark;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4); // Stronger shadow
+  }
+
+  p {
+    font-size: 2rem; // Slightly larger font size
+    color: darken($text-dark, 20%);
+    margin-bottom: 2.5rem; // Adjusted margin
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4); // Stronger shadow
+  }
+
+  .cta-button {
+    background-color: $secondary-color;
+    color: $text-light;
+    padding: 1.25rem 3.5rem; // Larger padding
+    font-size: 1.5rem; // Larger font size
+    border-radius: 12px; // More rounded corners
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); // Add shadow for depth
+
+    &:hover {
+      background-color: darken($secondary-color, 10%);
+      transform: scale(1.05); // Slightly scale up on hover
+    }
+  }
+}
+
+// Instructor Grid
+.instructor-grid {
+  padding: 4rem 2rem;
+  text-align: center;
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: $text-dark;
+    font-weight: bold; // Make heading bold
+  }
+
+  .grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2rem;
+
+    .grid-item {
+      width: 30%;
+      background-color: $background-light;
+      padding: 2rem;
+      border-radius: 12px; // More rounded corners
+      text-align: center;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); // Softer shadow
+      border: 2px solid $primary-color;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); // Enhanced shadow
+      }
+
+      .grid-icon {
+        width: 80px; // Larger icon for visibility
+        margin: 0 auto 1rem; // Center icon
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      h3 {
+        font-size: 1.75rem;
+        color: $text-dark;
+        margin-bottom: 1rem;
+        font-weight: bold; // Bold headings
+      }
+
+      p {
+        font-size: 1.125rem;
+        color: darken($text-dark, 20%);
+      }
+    }
+  }
+}
+
+// How to Become an Instructor
+.how-to-become-instructor {
+  padding: 4rem 2rem;
+  background-color: $background-light;
+
+  h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: $text-dark;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+
+    .step {
+      background-color: $text-light;
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 2px solid $primary-color; // Remove any borders that might add lines
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%; // Ensure consistent height across all cards
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      // Remove any pseudo-elements that might create lines
+      &::before, &::after {
+        content: none;
+        display: none;
+      }
+
+      .step-icon {
+        margin: 0 auto 1rem;
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        background-color: $secondary-color;
+        color: $text-light;
+      }
+
+      h3 {
+        font-size: 1.75rem;
+        color: $text-dark;
+        margin-bottom: 1rem;
+        font-weight: bold;
+      }
+
+      p {
+        font-size: 1.125rem;
+        color: darken($text-dark, 20%);
+        margin-bottom: 0;
+        flex-grow: 1; // Allow paragraph to take remaining space
+      }
+
+      .step-number {
+        // If the line is related to step number, hide it
+        &::before, &::after {
+          display: none;
+          content: none;
+        }
+      }
+    }
+  }
+}
+
+// Call to Action
+.cta {
+  text-align: center;
+  padding: 5rem 2rem; // Increased padding
+  background-color: $accent-color;
+  color: $text-light;
+
+  h2 {
+    font-size: 2.75rem; // Larger font size
+    margin-bottom: 1.5rem; // Increased margin
+    font-weight: bold; // Bold headings
+  }
+
+  p {
+    font-size: 1.75rem; // Larger font size
+    margin-bottom: 2.5rem; // Increased margin
+  }
+
+  .cta-button {
+    background-color: $secondary-color;
+    color: $text-light;
+    padding: 1.5rem 4rem; // Larger padding
+    font-size: 1.5rem; // Larger font size
+    border-radius: 12px; // More rounded corners
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); // Add shadow for depth
+
+    &:hover {
+      background-color: darken($secondary-color, 10%);
+      transform: scale(1.05); // Slightly scale up on hover
+    }
+  }
+}

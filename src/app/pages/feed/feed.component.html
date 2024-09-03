@@ -1,4 +1,100 @@
-<ng-container
+<div class="container-fluid bg-breadcrumb">
+  <ul class="breadcrumb-animation">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <!-- <div class="container text-center py-5" style="max-width: 900px;">
+    <h3 class="display-3 mb-4 wow fadeInDown" data-wow-delay="0.1s">Our Blog</h3>
+    <ol class="breadcrumb justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
+      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+      <li class="breadcrumb-item"><a href="#">Pages</a></li>
+      <li class="breadcrumb-item active text-primary">Blog</li>
+    </ol>
+  </div> -->
+</div>
+<!-- Header End -->
+
+<ng-container *ngTemplateOutlet="posts;context: {loadingPosts: loadingPostsSig()}" />
+
+<ng-template #posts let-posts="posts" let-loadingPosts="loadingPosts">
+
+  <!-- Blog Start -->
+  <div class="container-fluid blog py-5">
+    <div class="container py-5">
+      <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
+        <h4 class="text-primary">Our Notes</h4>
+        <h1 class="display-5 mb-4">Join Us For latest Notes Everday</h1>
+        <!-- <p class="mb-0">Dolor sit amet consectetur, adipisicing elit. Ipsam, beatae maxime. Vel animi eveniet doloremque
+        reiciendis soluta iste provident non rerum illum perferendis earum est architecto dolores vitae quia vero quod
+        incidunt culpa corporis, porro doloribus. Voluptates nemo doloremque cum.
+      </p> -->
+      </div>
+
+      <!-- Header Start -->
+      <div style="margin-top: 20px;">
+        <label for="board">Select Board:</label>
+        <select id="board" (change)="onBoardChange($event)">
+          <option value="" disabled>Select Board</option>
+          <option *ngFor="let board of boards" [value]="board">{{ board }}</option>
+        </select>
+      </div>
+
+      <div *ngIf="selectedBoard">
+        <label for="class">Select Class:</label>
+        <select id="class" (change)="onClassChange($event)">
+          <option value="" disabled>Select Class</option>
+          <option *ngFor="let cls of classes" [value]="cls">{{ cls }}</option>
+        </select>
+      </div>
+
+      <div *ngIf="selectedClass !== null">
+        <label for="subject">Select Subject:</label>
+        <select id="subject" (change)="onSubjectChange($event)">
+          <option value="" disabled>Select Subject</option>
+          <option *ngFor="let subject of subjects" [value]="subject">{{ subject }}</option>
+        </select>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <div *ngFor="let item of postData" class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
+          <div class="blog-item">
+            <div class="blog-img">
+              <img *ngIf="item?._embedded?.['wp:featuredmedia']?.[0]?.source_url" alt="Feature Image"
+                class="img-fluid w-100" [src]="item._embedded?.['wp:featuredmedia']?.[0]?.source_url">
+              <!-- <img *ngIf="item?.imageLink" [src]="item?.imageLink" alt="Feature Image" class="main-img"> -->
+              <!-- <img src="img/blog-1.png" class="img-fluid w-100" alt=""> -->
+              <!-- <div class="blog-info">
+              <span><i class="fa fa-clock"></i> {{ item.created_at }}</span>
+              <div class="d-flex">
+                <span class="me-3">3 <i class="fa fa-heart"></i></span>
+                <a href="#" class="text-white">0 <i class="fa fa-comment"></i></a>
+              </div>
+            </div> -->
+            </div>
+            <div class="blog-content text-dark border p-4">
+              <h5 class="mb-4">{{ item?.title?.rendered }}</h5>
+              <p class="mb-4">{{ item?.content }}</p>
+              <p class="mb-4">{{ item?.created_at }}</p>
+              <a class="btn btn-light rounded-pill py-2 px-4" [routerLink]="['/notes-detail', item.slug]">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ng-template>
+<!-- Blog End -->
+
+<!-- <ng-container
   *ngTemplateOutlet="
     posts;
     context: {
@@ -52,4 +148,4 @@
       />
     </div>
   </section>
-</ng-template>
+</ng-template> -->

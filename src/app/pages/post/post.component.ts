@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
-  OnDestroy,
   OnInit,
   signal,
 } from '@angular/core';
@@ -32,7 +31,7 @@ import { UserService } from '../../core/services/user.service';
   styleUrls: ['./post.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PostComponent implements OnInit, OnDestroy {
+export class PostComponent implements OnInit {
   postSig = signal<ApiPost | null>(null);
   loadingSig = signal<boolean>(true);
   isLoggedIn$: Observable<boolean> = this.userService.isLoggedIn$;
@@ -61,10 +60,10 @@ export class PostComponent implements OnInit, OnDestroy {
       .subscribe();
   }
 
-  ngOnDestroy() {
-    this.onDestroy$.next();
-    this.onDestroy$.complete();
-  }
+  // ngOnDestroy() {
+  //   this.onDestroy$.next();
+  //   this.onDestroy$.complete();
+  // }
 
   private likePost(id: string): Observable<ApiPost | ApiError> {
     return this.postsService.likePost(id).pipe(
