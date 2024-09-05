@@ -1,0 +1,44 @@
+.top-tutors {
+    text-align: center;
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+    .tutor-cards {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        .tutor-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 250px;
+            text-align: center;
+
+            img {
+                width: 100%;
+                border-radius: 10px;
+            }
+
+            .tutor-info {
+                p {
+                    margin: 10px 0;
+                    font-size: 1rem;
+                }
+
+                .btn-book {
+                    background-color: #f0f000; /* Yellow button */
+                    color: #000;
+                    padding: 10px 20px;
+                    border-radius: 20px;
+                    border: none;
+                    cursor: pointer;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
