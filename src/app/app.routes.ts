@@ -45,6 +45,13 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/post/post.component').then((m) => m.PostComponent),
   },
+
+  {
+    path: 'teacher-list',
+    loadComponent: () =>
+      import('./pages/home/components/teacher-list/teacher-list.component').then((m) => m.TeacherListComponent),
+    title: 'Our-Teachers',
+  },
   {
     path: 'our-teachers',
     loadComponent: () =>
