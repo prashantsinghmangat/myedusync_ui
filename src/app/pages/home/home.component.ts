@@ -45,7 +45,7 @@ export class HomeComponent implements AfterViewInit {
   constructor(
     private readonly route: ActivatedRoute,
     @Inject(PLATFORM_ID) private readonly platformId: string,
-  ) {}
+  ) { }
 
   closeErrorModal(): void {
     this.displayErrorModalSig.set(false);
