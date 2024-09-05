@@ -53,6 +53,12 @@ export const routes: Routes = [
     title: 'Our-Teachers',
   },
   {
+    path: 'our-teachers',
+    loadComponent: () =>
+      import('./pages/home/components/our-teachers/our-teachers.component').then((m) => m.OurTeacherComponent),
+    title: 'AboutUs',
+  },
+  {
     path: 'about-us',
     loadComponent: () =>
       import('./pages/home/components/about-us/about-us.component').then((m) => m.AboutUsComponent),
