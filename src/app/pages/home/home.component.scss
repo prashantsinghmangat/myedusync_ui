@@ -1,3 +1,108 @@
-:host {
-  flex: 1;
+// Variables
+$primary-color: #007bff;
+$accent-color: #ffc107;
+$dark-bg: #343a40;
+$text-color: #fff;
+$hover-effect-color: #f8f9fa;
+
+// Base Styles
+body, html {
+  padding: 0;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
 }
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+  &:hover {
+    color: darken($primary-color, 10%);
+  }
+}
+
+// Hero Section
+.hero-section {
+  background-image: url('https://miro.medium.com/v2/resize:fit:1024/0*bePdwlQYV7WZikVp.jpg');
+  background-size: cover;
+  background-position: center;
+  color: $text-color;
+  text-align: center;
+  padding: 40px 20px;
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .cta-buttons {
+    button {
+      background-color: $accent-color;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      &:hover {
+        background-color: lighten($accent-color, 10%);
+      }
+    }
+  }
+}
+
+// Global Reach and Features Section
+.section {
+  padding: 20px;
+  text-align: center;
+
+  .stat-card, .feature-card {
+    display: inline-block;
+    margin: 10px;
+    padding: 20px;
+    background: $dark-bg;
+    color: $hover-effect-color;
+    border-radius: 10px;
+
+    &:hover {
+      background: darken($dark-bg, 5%);
+    }
+  }
+
+  h2, p {
+    color: $text-color;
+  }
+}
+
+// Star Tutors and Testimonials Section
+.card {
+  background: $text-color;
+  color: $dark-bg;
+  margin: 10px auto;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+
+  &:hover {
+    transform: scale(1.05);
+    background-color: $hover-effect-color;
+    color: $dark-bg;
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+}
+
+// Footer
+footer {
+  background-color: $dark-bg;
+  color: $text-color;
+  text-align: center;
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+

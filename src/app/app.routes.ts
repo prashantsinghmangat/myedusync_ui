@@ -45,31 +45,35 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/post/post.component').then((m) => m.PostComponent),
   },
-
   {
     path: 'teacher-list',
     loadComponent: () =>
       import('./pages/home/components/teacher-list/teacher-list.component').then((m) => m.TeacherListComponent),
     title: 'Our-Teachers',
   },
-  {
-    path: 'our-teachers',
-    loadComponent: () =>
-      import('./pages/home/components/our-teachers/our-teachers.component').then((m) => m.OurTeacherComponent),
-    title: 'AboutUs',
-  },
+  
   {
     path: 'about-us',
     loadComponent: () =>
       import('./pages/home/components/about-us/about-us.component').then((m) => m.AboutUsComponent),
     title: 'AboutUs',
   },
+ 
+
+  {
+    path: 'whiteboard',
+    loadComponent: () =>
+      import('./pages/home/components/whiteboard/whiteboard.component').then((m) => m.WhiteboardComponent),
+    title: 'AboutUs',
+  },
+
   {
     path: 'tutor-page',
     loadComponent: () =>
       import('./pages/home/components/tutor-page/tutor-page.component').then((m) => m.TutorPageComponent),
-    title: 'AboutUs',
+    title: 'Tutor',
   },
+
   {
     path: 'notes-detail/:id',
     loadComponent: () =>
