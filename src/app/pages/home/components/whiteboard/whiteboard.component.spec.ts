@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TeacherListComponent } from './teacher-list.component';
+import { WhiteboardComponent } from './whiteboard.component';
 
 describe('AboutUsComponent', () => {
-  let component: TeacherListComponent;
-  let fixture: ComponentFixture<TeacherListComponent>;
+  let component: WhiteboardComponent;
+  let fixture: ComponentFixture<WhiteboardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TeacherListComponent],
+      imports: [WhiteboardComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(TeacherListComponent);
+    fixture = TestBed.createComponent(WhiteboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
