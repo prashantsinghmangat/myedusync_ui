@@ -1,0 +1,312 @@
+body {
+  font-family: 'Arial', sans-serif; // Check if this matches or use Google Fonts like 'Roboto' for closer match
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-section {
+  margin-top: 20px;
+  display: flex;
+  align-items: center; 
+  justify-content: space-between; 
+  padding: 50px;
+
+  @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 20px; // Reduced padding for smaller screens
+  }
+}
+
+.hero-content {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 5%;
+
+  h1 {
+      font-size: 3rem; // Larger for emphasis
+      color: #000000; // White for contrast against dark/gradient background
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.2); // Subtle text shadow for depth
+  }
+  
+  p {
+      font-size: 1.2rem; // Slightly larger for readability
+      color: #a99b00; // Light grey for soft contrast
+      margin-bottom: 20px;
+      font-weight: 300; // Lighter font weight for modern look
+  }
+  
+  .action-btn {
+      background-color: #0f0f91; // White button
+      color: #ffffff; // Text color matches end of gradient
+      padding: 15px 25px;
+      border-radius: 8px; // More pronounced border radius
+      font-size: 1.2rem;
+      font-weight: bold; // Bold text for button
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15); // Box shadow for 3D effect
+      &:hover {
+          background-color: #cce4ff; // Light blue on hover
+      }
+  }
+}
+
+.hero-image {
+  width: 50%;
+  img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 15px; // Slightly more rounded corners
+      box-shadow: 0 8px 16px rgba(0,0,0,0.25); // Adding shadow to the image for depth
+  }
+}
+
+
+.teachers-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+  margin-top: 50px;
+}
+
+.teacher-card {
+  width: 380px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  background-color: #fff;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .teacher-image {
+    position: relative;
+    width: 100%;
+    height: 290px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+
+    .teacher-overlay {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      color: hwb(0 100% 0%); // White text for name and location
+      text-align: left;
+      
+      
+    }
+
+    .favorite-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 28px;
+      color: #ffffff; // White heart icon
+      text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    }
+  }
+
+  .teacher-info {
+    width: 100%;
+    padding: 20px;
+    text-align: left;
+  
+    .top-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%; // Ensure the container spans the full width of its parent
+  
+      .subject {
+        font-size: 16px;
+        color: #090909; // Adjusted color for better visibility
+        font-weight: bold;
+        margin-right: 10px; // Adjust spacing between subject and rating
+      }
+  
+      .rating-and-reviews {
+        display: flex;
+        align-items: center;
+  
+        .rating {
+          color: #ffdd57; // Gold color for the stars
+          font-size: 16px; // Larger star ratings
+        }
+  
+        .reviews {
+          font-size: 12px;
+          color: #666; // Subtle grey for review text
+          margin-left: 5px; // Space between rating stars and review number
+        }
+      }
+    }
+  
+    .details {
+      margin-top: 5px;
+      font-size: 14px;
+      color: #333; // Darker color for details to stand out
+    }
+  
+    .price {
+      font-size: 14px;
+      color: #de8383; // Specific color for price
+      font-weight: bold;
+      margin-top: 10px; // Space above the price for clarity
+    }
+  }
+}  
+
+.features-section {
+  margin-top: 20px;
+  text-align: center;
+  padding: 40px 0; // Added more padding around the section
+}
+
+.features-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 0 auto; // Center the card
+  max-width: 1200px; // Limit the width for better design control
+
+  .feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 23%;
+    padding: 20px;
+
+    &:not(:last-child) {
+      border-right: 2px solid #e0e0e0; // Add a right border to all but the last feature
+    }
+
+    h3 {
+      font-size: 1.2rem; // Increased font size
+      color: #333;
+      font-weight: 600; // Bold font weight for headings
+      margin-bottom: 10px;
+      margin-top: 10px; // Adjusted margin for spacing
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: #666;
+      max-width: 90%; // Max width for text to maintain readability
+    }
+    
+  }
+}
+
+@media (max-width: 768px) {
+  .features-card {
+    flex-direction: column;
+    .feature {
+      width: 100%; // Full width on small screens
+      padding: 15px;
+      border-right: none;
+      &:not(:last-child) {
+        border-bottom: 2px solid #e0e0e0; // Horizontal dividers on small screens
+      }
+    }
+  }
+}
+
+// review card
+.review-section {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 50px;
+  margin-bottom: 150px;
+}
+
+.review-card {
+  background-color: #fbfbfb;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(60, 56, 56, 0.1);
+  padding: 30px;
+  text-align: center;
+  width: 300px;
+  position: relative;
+  z-index: 10; // Ensures the review card appears above the base card
+
+  .profile-img-container {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid #f0f0f0;
+      position: absolute;
+      top: -40px;
+      left: calc(50% - 40px);
+      background-color: #fff;
+      img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+      }
+  }
+
+  blockquote {
+      font-size: 0.95rem;
+      color: #555;
+      padding: 60px 20px 20px;
+      position: relative;
+      quotes: "“" "”" "‘" "’";
+      &:before, &:after {
+          font-size: 2.5rem;
+          position: absolute;
+          color: #ccc;
+      }
+      &:before {
+          content: open-quote;
+          top: -40px;
+          left: 10px;
+      }
+      &:after {
+          content: close-quote;
+          bottom: -20px;
+          right: 10px;
+      }
+  }
+
+  .reviewer-info {
+      h4 {
+          font-size: 1rem;
+          color: #333;
+          font-weight: 600;
+          margin-top: 12px;
+      }
+      p {
+          font-size: 0.85rem;
+          color: #666;
+          margin-top: 4px;
+      }
+  }
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #ebebeb;
+  margin: 0;
+  padding: 20px;
+}
