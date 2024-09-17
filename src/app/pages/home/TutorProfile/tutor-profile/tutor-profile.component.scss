@@ -1,0 +1,323 @@
+
+
+.container {
+    display: flex;
+    margin: 0 auto;
+    width: 100%;  
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.left-section, .right-section {
+    padding: 20px;
+    display: flex;
+    margin-top: 65px;
+    flex-direction: column;
+}
+
+ .courses-card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+
+.course-detail {
+    background-color: #e9ecef;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+
+// teacher profile 
+.profile-card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+   text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    overflow: hidden; // This can help with any overflow issues from the image
+}
+
+.profile-image {
+    width: 100%;  // Full width of the container
+    height: 200px;  // Fixed height for all images
+    object-fit: cover;  // Ensures the image covers the area without distorting aspect ratio
+    border-radius: 8px;  // Rounded corners if desired
+    margin-bottom: 15px;
+}
+
+
+.profile-info {
+    padding: 0 15px; // Ensures text doesn't touch the edges
+}
+
+h1 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px; // Reduce space below the name if needed
+    margin-left: 0 px;
+}
+
+p {
+    font-size: 14px;
+    margin-bottom: 20px; // More space before buttons
+}
+
+.buttons {
+    display: flex;
+    justify-content: center; // Centering buttons within the card
+    gap: 15px; // Adjust gap to ensure buttons are not too close to each other
+    margin-top: 15px; // Adds space above the button row if needed
+}
+
+.btn {
+    padding: 12px 24px; // Standard padding for all buttons
+    font-size: 16px; // Standard font size for button text
+    border-radius: 6px; // Rounded corners for all buttons
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s; // Smooth transition for hover effect
+}
+
+.btn.book {
+    background-color: #0056b3; // Primary button color
+    flex-grow: 2; // Makes the button wider
+}
+
+.btn.share {
+    background-color: #007BFF; // Secondary button color, lighter or different shade
+    flex-grow: 1; // Smaller button
+}
+
+.btn:hover {
+    background-color: darken(#0056b3, 10%); // Darkens button on hover
+}
+
+// Bio Card
+.bio-card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    overflow: hidden; //
+
+}
+
+.bio-details {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666; // Ensuring all text in bio details shares the lighter color
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.skill {
+    background-color: #ffd277;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #000000; // Maintain darker text for contrast on the skill labels
+}
+
+
+// work experinece
+
+.work-experience-section {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+    h2 {
+      font-size: 22px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+  
+    .experience-card {
+      background-color: #ffffff;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      margin-bottom: 10px;
+      transition: box-shadow 0.3s;
+  
+      &:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      }
+  
+      .experience-details {
+        .organization-name {
+          font-size: 15px;
+          color: #000000;
+          margin: 0;
+          font-weight: 600;
+        }
+  
+        .designation {
+          font-size: 16px;
+          color: #555;
+          margin: 5px 0;
+        }
+  
+        .date-info {
+          display: flex;
+          justify-content: space-between;
+          font-size: 14px;
+          color: #999;
+  
+          .start-date {
+            margin-right: 20px;
+          }
+  
+          .end-date {
+            margin-left: 20px;
+          }
+        }
+      }
+    }
+  }
+  
+
+// education qualification card
+.education-card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 800px; // Adapt to your design
+
+    h2 {
+        margin-bottom: 20px;
+    }
+}
+
+.education-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.university-info {
+    display: flex;
+    align-items: center;
+
+   
+}
+
+.credential-link {
+    color: #0056b3;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+// course card ----------------------
+.course-section {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    width: 800px; // Adapt to your design
+    .course-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        margin-bottom: 20px;
+        background: hsl(0, 0%, 100%); // A light background for the header
+
+        h1 {
+            margin: 0;
+        }
+
+        .create-course-btn {
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: darken(#0056b3, 10%);
+            }
+        }
+    }
+
+    .course-card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #ffffff;
+        padding: 20px;
+        margin-top: 2px; // Creates space between course cards
+        //border-radius: 8px;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+
+        .course-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-gap: 20px;
+            width: 100%;
+
+            .subject, .frequency, .mode, .cost {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+
+                h3, p {
+                    margin: 0;
+                    padding: 5px 0;
+                }
+            }
+        }
+
+        .join-btn {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: darken(#007BFF, 10%);
+            }
+        }
+    }
+}
