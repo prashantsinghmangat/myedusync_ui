@@ -1,0 +1,116 @@
+<div class="profile-input-page">
+    <form>
+        <!-- Profile Section -->
+        <section class="profile-section">
+            <h2>Profile</h2>
+            <div class="field-row">
+                <div class="field-col">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" [(ngModel)]="profile.name" name="name">
+                </div>
+                <div class="field-col">
+                    <label for="phone">Phone</label>
+                    <input type="text" id="phone" [(ngModel)]="profile.phone" name="phone">
+                </div>
+            </div>
+            <div class="field-row">
+                <div class="field-col">
+                    <label for="designation">Current Designation</label>
+                    <input type="text" id="designation" [(ngModel)]="profile.designation" name="designation">
+                </div>
+                <div class="field-col">
+                    <label for="location">Current Location</label>
+                    <input type="text" id="location" [(ngModel)]="profile.location" name="location">
+                </div>
+            </div>
+            <div class="input-file">
+                <label for="profile-pic" class="upload-label">Upload Profile Picture</label>
+                <div class="profile-upload-container">
+                    <input type="file" id="profile-pic" name="profilePic" (change)="handleImageChange($event)">
+                    <div class="uploaded-image-container">
+                        <img *ngIf="imageUrl" [src]="imageUrl" alt="Selected Profile Picture">
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section">
+            <h2>About</h2>
+            <div class="field-container">
+                <label for="short-bio">Short Bio</label>
+                <textarea id="short-bio" [(ngModel)]="profile.shortBio" name="shortBio" placeholder="A brief introduction..."></textarea>
+            </div>
+            <div class="field-container">
+                <label for="about-me">About Me</label>
+                <textarea id="about-me" [(ngModel)]="profile.aboutMe" name="aboutMe" placeholder="Tell us more about yourself..."></textarea>
+            </div>
+            <div class="field-container">
+                <label for="skills">Skills</label>
+                <textarea id="skills" [(ngModel)]="profile.skills" name="skills" placeholder="List your professional skills..."></textarea>
+            </div>
+        </section>
+
+        <!-- Work Experience Section -->
+        <section class="work-experience-section">
+            <h2>Work Experience</h2>
+            <div *ngFor="let experience of workExperience; let i = index">
+                <div class="field-row">
+                    <div class="field-col">
+                        <label for="company-{{i}}">Company Name</label>
+                        <input type="text" id="company-{{i}}" [(ngModel)]="experience.company" name="company-{{i}}">
+                    </div>
+                    <div class="field-col">
+                        <label for="designation-{{i}}">Designation</label>
+                        <input type="text" id="designation-{{i}}" [(ngModel)]="experience.designation" name="designation-{{i}}">
+                    </div>
+                </div>
+                <div class="field-row">
+                    <div class="field-col">
+                        <label for="start-date-{{i}}">Start Date</label>
+                        <input type="date" id="start-date-{{i}}" [(ngModel)]="experience.startDate" name="start-date-{{i}}">
+                    </div>
+                    <div class="field-col">
+                        <label for="end-date-{{i}}">End Date</label>
+                        <input type="date" id="end-date-{{i}}" [(ngModel)]="experience.endDate" name="end-date-{{i}}">
+                    </div>
+                </div>
+                <button type="button" (click)="removeExperience(i)">Remove Experience</button>
+            </div>
+            <button type="button" (click)="addExperience()">Add Experience</button>
+        </section>
+
+        <!-- Education Qualification Section -->
+        <section class="education-section">
+            <h2>Education Qualification</h2>
+            <div *ngFor="let edu of education; let i = index" class="education-block">
+                <div class="field-row">
+                    <div class="field-col">
+                        <label for="university-{{i}}">University Name</label>
+                        <input type="text" id="university-{{i}}" [(ngModel)]="edu.university" name="university-{{i}}">
+                    </div>
+                    <div class="field-col">
+                        <label for="degree-{{i}}">Degree Name</label>
+                        <input type="text" id="degree-{{i}}" [(ngModel)]="edu.degree" name="degree-{{i}}">
+                    </div>
+                </div>
+                <div class="field-row">
+                    <div class="field-col">
+                        <label for="edu-start-date-{{i}}">Start Date</label>
+                        <input type="date" id="edu-start-date-{{i}}" [(ngModel)]="edu.startDate" name="edu-start-date-{{i}}">
+                    </div>
+                    <div class="field-col">
+                        <label for="edu-end-date-{{i}}">End Date</label>
+                        <input type="date" id="edu-end-date-{{i}}" [(ngModel)]="edu.endDate" name="edu-end-date-{{i}}">
+                    </div>
+                </div>
+                <button type="button" (click)="removeEducation(i)" class="remove-button">Remove Education</button>
+            </div>
+            <button type="button" (click)="addEducation()" class="add-button">Add Education</button>
+        </section>
+        
+
+        <button type="submit" class="submit-button">Submit</button>
+    </form>
+</div>
