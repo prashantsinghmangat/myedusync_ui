@@ -13,23 +13,20 @@ import {
   MarkedRenderer,
   provideMarkdown,
 } from 'ngx-markdown';
+import { FormsModule } from '@angular/forms';  // Import FormsModule
 import { routes } from './app.routes';
 import { credentialsInterceptor } from './core/interceptors/credentials.interceptor';
 
 export function markedOptionsFactory(): MarkedOptions {
   const renderer = new MarkedRenderer();
 
-  /**
-   * TIL has own title property which is page's h1. We don't want
-   * users to add more h1 tags, so we are replacing them with h2, but
-   * keeping the same style (h1 is bigger than h2).
-   *
-   *  Having multiple h1 tags is not good for SEO.
-   */
+  // Customizing the renderer to replace h1 tags with h2, but maintain h1 styling for SEO considerations.
   renderer.heading = (text: string, level: number) => {
     if (level === 1) {
+      // Applying h2 tag but maintaining the style of h1
       return `<h2 class="text-4xl font-bold mt-8">${text}</h2>\n`;
     } else {
+      // Handling other headings normally
       return `<h${level}>${text}</h${level}>\n`;
     }
   };
@@ -45,6 +42,7 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(),
     provideHttpClient(withFetch(), withInterceptors([credentialsInterceptor])),
     importProvidersFrom(BrowserAnimationsModule),
+    importProvidersFrom(FormsModule),  // Import FormsModule here
     provideMarkdown({
       markedOptions: {
         provide: MARKED_OPTIONS,

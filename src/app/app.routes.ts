@@ -5,7 +5,8 @@ export const routes: Routes = [
   {
     path: '',
     loadComponent: () =>
-      import('./pages/home/home.component').then((m) => m.HomeComponent),
+      import('./pages/home/components/home-page/home-page.component').then((m) => m.HomePageComponent),
+
     title: 'Today I Learned — Share what you learned today',
   },
   {
@@ -45,19 +46,23 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/post/post.component').then((m) => m.PostComponent),
   },
-
   {
     path: 'teacher-list',
     loadComponent: () =>
       import('./pages/home/components/teacher-list/teacher-list.component').then((m) => m.TeacherListComponent),
     title: 'Our-Teachers',
   },
+
   {
-    path: 'our-teachers',
+    path: 'tutor-profile',
     loadComponent: () =>
-      import('./pages/home/components/our-teachers/our-teachers.component').then((m) => m.OurTeacherComponent),
-    title: 'AboutUs',
+      import('./pages/home/TutorProfile/tutor-profile/tutor-profile.component').then((m) => m.TutorProfileComponent),
+    title: 'Tutor-Profile',
   },
+
+
+ 
+  
   {
     path: 'about-us',
     loadComponent: () =>
@@ -65,11 +70,26 @@ export const routes: Routes = [
     title: 'AboutUs',
   },
   {
+    path: 'tutorprofile-edit',
+    loadComponent: () =>
+      import('./pages/home/Login/tutorprofile-edit/tutorprofile-edit.component').then((m) => m.TutorProfileEditComponent),
+    title: 'TutorProfileedit',
+  },
+
+  {
+    path: 'whiteboard',
+    loadComponent: () =>
+      import('./pages/home/components/whiteboard/whiteboard.component').then((m) => m.WhiteboardComponent),
+    title: 'AboutUs',
+  },
+
+  {
     path: 'tutor-page',
     loadComponent: () =>
       import('./pages/home/components/tutor-page/tutor-page.component').then((m) => m.TutorPageComponent),
-    title: 'AboutUs',
+    title: 'Tutor',
   },
+
   {
     path: 'notes-detail/:id',
     loadComponent: () =>

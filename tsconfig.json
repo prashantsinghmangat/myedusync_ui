@@ -16,10 +16,11 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "ES2022",
-    "module": "ES2022",
+    "target": "ES2020",    /* Consider using ES2020 or ESNext for better compatibility */
+    "module": "ES2020",    /* Alternatively, use ESNext if needed */
     "useDefineForClassFields": false,
-    "lib": ["ES2022", "dom"]
+    "lib": ["ES2020", "dom"],    /* ES2020 and DOM libraries */
+    "skipLibCheck": true         /* Skip library type checking */
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
