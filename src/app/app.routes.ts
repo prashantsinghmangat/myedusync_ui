@@ -28,6 +28,8 @@ export const routes: Routes = [
     path: 'teacher-list', loadComponent: () => import('./pages/home/components/teacher-list/teacher-list.component').then((m) => m.TeacherListComponent), title: 'Our-Teachers',
   },
 
+
+
   {
     path: 'tutor-profile', loadComponent: () => import('./pages/home/TutorProfile/tutor-profile/tutor-profile.component').then((m) => m.TutorProfileComponent), title: 'Tutor-Profile',
   },
