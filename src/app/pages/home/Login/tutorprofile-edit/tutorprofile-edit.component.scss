@@ -188,68 +188,214 @@
 }
 
 // education card
-
 .education-section {
+    background: #ffffff; // Unified background color
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+
+    h2 {
+        font-size: 2rem;
+        color: #004085; // Matching header color
+        margin-bottom: 20px;
+        padding-bottom: 5px;
+        border-bottom: 2px solid #007bff; // Consistent styling for section headers
+    }
+
     .education-block {
-        background: #f9f9f9; // Light background for each education block
         padding: 20px;
+        background: #f8f8f8; // Light grey background for internal blocks
         border-radius: 8px;
-        margin-bottom: 20px; // Space between each education block
+        margin-bottom: 20px;
 
         .field-row {
             display: flex;
-            justify-content: space-between; // Ensures fields are evenly spaced
+            justify-content: space-between;
+            flex-wrap: wrap; // Responsive wrapping
 
             .field-col {
-                flex: 1; // Each column takes equal space
-                margin-right: 20px; // Space between columns
+                flex: 1; // Equal width columns
+                margin-right: 20px;
+                margin-bottom: 20px; // Consistent margin for spacing
 
                 &:last-child {
-                    margin-right: 0; // Removes margin from the last column
+                    margin-right: 0; // No right margin on the last element
                 }
 
                 label {
                     display: block;
-                    margin-bottom: 5px;
-                    font-size: 1.1rem;
+                    margin-bottom: 8px;
+                    font-size: 1.2rem; // Slightly larger label font
                     color: #333;
+                    font-weight: 600; // Bold font weight for labels
                 }
 
                 input[type="text"],
-                input[type="date"] {
+                input[type="date"],
+                input[type="file"] {
                     width: 100%;
-                    padding: 10px;
-                    border: 1px solid #ccc;
-                    border-radius: 5px;
+                    padding: 12px;
+                    border: 2px solid #ced4da; // Border for inputs
+                    border-radius: 5px; // Rounded borders for inputs
+                    background: #ffffff;
 
                     &:hover, &:focus {
-                        border-color: #007bff;
+                        border-color: #80bdff; // Highlight color on focus
+                        box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); // Outer glow effect
                         outline: none;
                     }
+                }
+
+                img {
+                    margin-top: 10px;
+                    width: 100px;
+                    height: 100px;
+                    object-fit: cover; // Ensures the image fits well
+                    border-radius: 5px; // Rounded corners for images
+                    border: 1px solid #ccc;
                 }
             }
         }
 
         .remove-button, .add-button {
-            background-color: #f44336;
-            color: white;
+            font-size: 1.1rem;
+            padding: 10px 20px;
+            border-radius: 10px;
             border: none;
-            border-radius: 5px;
-            padding: 10px 15px;
-            cursor: pointer;
-            font-size: 1rem;
-            margin-top: 10px; // Space above the button
+            margin-top: 5px;
+            margin-right: 0; // Ensure no right margin affects alignment
+
+            transition: all 0.2s ease-in-out;
 
             &:hover {
-                background-color: #d32f2f;
+                transform: translateY(-2px); // Lift effect on hover
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2); // Shadow for depth
+            }
+        }
+
+        .remove-button {
+            background-color: #dc3545; // Consistent button color for remove
+            color: white;
+
+            &:hover {
+                background-color: #c82333;
             }
         }
 
         .add-button {
-            background-color: #4CAF50; // Green color for add button
+            background-color: #28a745; // Consistent button color for add
+            color: white;
 
             &:hover {
-                background-color: #388E3C;
+                background-color: #218838;
+            }
+        }
+    }
+}
+
+// work experience code
+.work-experience-section {
+    padding: 20px;
+    background: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+
+    h2 {
+        font-size: 2rem;
+        color: #004085; // A darker shade for better contrast
+        margin-bottom: 15px;
+        padding-bottom: 5px;
+        border-bottom: 2px solid #007bff;
+    }
+
+    .field-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+
+        .field-col {
+            flex: 1;
+            padding-right: 15px;
+
+            &:last-child {
+                padding-right: 0;
+            }
+
+            label {
+                font-size: 1.2rem;
+                color: #333;
+                margin-bottom: 8px;
+                font-weight: 600;
+            }
+
+            input[type="text"],
+            input[type="date"],
+            select {
+                width: 100%;
+                padding: 12px;
+                border: 2px solid #ced4da;
+                border-radius: 5px;
+                background: #ffffff;
+
+                &:hover, &:focus {
+                    border-color: #80bdff;
+                    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+                    outline: none;
+                }
+            }
+
+            select {
+                cursor: pointer;
+                appearance: none; // Improves the appearance on iOS
+            }
+        }
+    }
+
+    .remove-button, .add-button {
+        font-size: 1.1rem;
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        margin-top: 10px;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+    }
+
+    .remove-button {
+        background-color: #dc3545;
+        color: #ffffff;
+
+        &:hover {
+            background-color: #c82333;
+        }
+    }
+
+    .add-button {
+        background-color: #28a745;
+        color: #ffffff;
+
+        &:hover {
+            background-color: #218838;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-input-page {
+        form {
+            padding: 20px;
+            .profile-upload-container, .field-row {
+                flex-direction: column;
+
+                .uploaded-image-container, input[type="file"], .field-col {
+                    width: 100%; // Full width for mobile
+                    margin-right: 0;
+                }
             }
         }
     }

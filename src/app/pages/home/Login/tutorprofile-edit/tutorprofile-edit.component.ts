@@ -20,16 +20,32 @@ export class TutorProfileEditComponent {
     skills: ''
   };
 
-  workExperience = [
-    { company: '', designation: '', startDate: '', endDate: '' }
-  ];
-
+ 
   education = [
-    { university: '', degree: '', startDate: '', endDate: '' }
+    { 
+      instituteName: '', courseName: '', fieldOfStudy: '', 
+      startTime: '', endTime: '', grade: '', credentialUrl: '' 
+    }
   ];
 
+  workExperience = [
+    { 
+      organisationName: '', 
+      designation: '', 
+      type: 'Full-Time', // Default value set to 'Full-Time'
+      startTime: '', 
+      endTime: '' 
+    }
+  ];
+  
   addExperience() {
-    this.workExperience.push({ company: '', designation: '', startDate: '', endDate: '' });
+    this.workExperience.push({
+      organisationName: '',
+      designation: '',
+      type: 'Full-Time', // Default value set to 'Full-Time'
+      startTime: '',
+      endTime: ''
+    });
   }
 
   removeExperience(index: number) {
@@ -37,9 +53,17 @@ export class TutorProfileEditComponent {
   }
 
   addEducation() {
-    this.education.push({ university: '', degree: '', startDate: '', endDate: '' });
+    this.education.push({
+      instituteName: '',
+      courseName: '',
+      fieldOfStudy: '',
+      startTime: '',
+      endTime: '',
+      grade: '',
+      credentialUrl: ''
+    });
   }
-
+  
   removeEducation(index: number) {
     this.education.splice(index, 1);
   }
