@@ -17,6 +17,9 @@ import { FormsModule } from '@angular/forms';  // Import FormsModule
 import { routes } from './app.routes';
 import { credentialsInterceptor } from './core/interceptors/credentials.interceptor';
 
+// used to create fake backend
+import { fakeBackendProvider } from './login-auth/_helpers';
+
 export function markedOptionsFactory(): MarkedOptions {
   const renderer = new MarkedRenderer();
 
@@ -49,5 +52,7 @@ export const appConfig: ApplicationConfig = {
         useValue: markedOptionsFactory(),
       },
     }),
+     // provider used to create fake backend
+        fakeBackendProvider
   ],
 };

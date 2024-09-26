@@ -1,0 +1,120 @@
+<!-- eslint-disable @angular-eslint/template/label-has-associated-control -->
+<div class="container">
+    <div class="left-panel">
+        <p>Syncing Knowledge, Empowering Future</p>
+    </div>
+    <div class="right-panel">
+        <form *ngIf="!viewCheck" class="registration-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+            <h1 class="Form-heading">Join Now for Success</h1>
+            <input type="text" formControlName="username" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f['username'].errors }" />
+            <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
+                <div *ngIf="f['username'].errors['required']">Username is required</div>
+            </div>
+
+            <input type="password" formControlName="password" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" />
+            <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                <div *ngIf="f['password'].errors['required']">Password is required</div>
+            </div>
+
+            <p class="password-requirements">
+                Your password needs to include:
+                <br>✔ Must contain one number
+                <br>✔ Min 8 characters
+            </p>
+
+            <div class="terms">
+                <input type="checkbox" id="agree">
+                <label for="agree">I agree to the Terms & Privacy</label>
+            </div>
+
+            <button class="btn btn-primary" [disabled]="loading">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
+                Login
+            </button>
+            <button type="button" (click)="formView()">Go to Register!</button>
+        </form>
+
+        <div *ngIf="viewCheck">
+            <form [formGroup]="registerform" (ngSubmit)="onRegisterSubmit()">
+
+                <!-- Dropdown for Role Selection -->
+                <div class="mb-3">
+                    <label class="form-label">Role</label>
+                    <select formControlName="role" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && fregister['role'].errors }">
+                        <option value="">Select Role</option>
+                        <option value="Teacher">Teacher</option>
+                        <option value="Student">Student</option>
+                    </select>
+                    <div *ngIf="submitted && fregister['role'].errors" class="invalid-feedback">
+                        <div *ngIf="fregister['role'].errors['required']">Role is required</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" formControlName="name" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && fregister['name'].errors }" />
+                    <div *ngIf="submitted && fregister['name'].errors" class="invalid-feedback">
+                        <div *ngIf="fregister['name'].errors['required']">Full Name is required</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" formControlName="emailId" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && fregister['emailId'].errors }" />
+                    <div *ngIf="submitted && fregister['emailId'].errors" class="invalid-feedback">
+                        <div *ngIf="fregister['emailId'].errors['required']">Email Address is required</div>
+                        <div *ngIf="fregister['emailId'].errors['email']">Enter a valid email address</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Phone Number</label>
+                    <input type="text" formControlName="phoneNumber" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && fregister['phoneNumber'].errors }" />
+                    <div *ngIf="submitted && fregister['phoneNumber'].errors" class="invalid-feedback">
+                        <div *ngIf="fregister['phoneNumber'].errors['required']">Phone Number is required</div>
+                        <div *ngIf="fregister['phoneNumber'].errors['pattern']">Enter a valid phone number</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Location</label>
+                    <input type="text" formControlName="location" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && fregister['location'].errors }" />
+                    <div *ngIf="submitted && fregister['location'].errors" class="invalid-feedback">
+                        <div *ngIf="fregister['location'].errors['required']">Location is required</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="password" formControlName="password" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && fregister['password'].errors }" />
+                    <div *ngIf="submitted && fregister['password'].errors" class="invalid-feedback">
+                        <div *ngIf="fregister['password'].errors['required']">Password is required</div>
+                        <div *ngIf="fregister['password'].errors['minlength']">Password must be at least 6 characters
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <button class="btn btn-primary" [disabled]="regloading">
+                        <span *ngIf="regloading" class="spinner-border spinner-border-sm me-1"></span>
+                        Register
+                    </button>
+                </div>
+            </form>
+
+            <div>
+                <button class="btn btn-primary" (click)="formView()">
+                    Back to Login
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

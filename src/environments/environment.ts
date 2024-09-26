@@ -12,4 +12,6 @@ export const environment = {
 
   awsbaseUrl: 'http://ec2-13-126-94-172.ap-south-1.compute.amazonaws.com:8000',
   wordpressUrl: 'https://myedusync.com/wp-json/wp/v2/posts',
+
+  apiUrl: 'http://localhost:4000',
 };
