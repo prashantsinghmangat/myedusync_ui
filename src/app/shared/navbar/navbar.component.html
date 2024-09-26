@@ -1,6 +1,6 @@
 <til-auth-modal [show]="showAuthModalSig()" (closeModal)="toggleAuthModal()" />
 
-<ng-container *ngTemplateOutlet="navbar; context: { user: user$ | async }" />
+<ng-container *ngTemplateOutlet="navbar;" />
 
 <ng-template #navbar let-user="user">
   <div class="fixed z-50 flex w-full justify-center bg-base-100">
@@ -26,18 +26,18 @@
             </svg>
           </div>
           <ul tabindex="0" class="menu dropdown-content z-[1] w-64 gap-1 rounded-box bg-base-100 p-2 shadow">
-            @if (user) {
+            <!-- @if (user) { -->
             <a class="btn-ghost flex items-center gap-2 rounded-lg px-4 py-1" routerLink="/profile"
               (click)="closeMenu()">
               <div class="avatar">
                 <div class="w-11 rounded-full">
-                  <img [src]="user.image" [alt]="user.name + '\'s avatar'" />
+                  <img [src]="user?.image" [alt]="user?.name + '\'s avatar'" />
                 </div>
               </div>
               <div>
                 <div class="font-semibold">Profile</div>
                 <div class="text-left text-xs text-opacity-50">
-                  {{ user.name }}
+                  {{ user?.name }}
                 </div>
               </div>
             </a>
@@ -55,19 +55,23 @@
             <li>
               <button class="font-semibold" (click)="logout()">Logout</button>
             </li>
-            } @else {
+            <!-- } @else { -->
             <li>
               <a class="font-semibold" routerLink="/" (click)="closeMenu()">Home</a>
             </li>
             <li>
               <a class="font-semibold" routerLink="/feed" (click)="closeMenu()">Notes</a>
             </li>
+            <li><button routerLink="/account/login" routerLinkActive="active"
+                class="btn-demo-mobile bg-blue-200 text-blue-800 font-bold py-2 px-4 rounded-lg hover:bg-blue-100">
+                Login
+              </button></li>
             <li>
               <button class="font-semibold" (click)="toggleAuthModal()">
                 Login or register
               </button>
             </li>
-            }
+            <!-- } -->
           </ul>
         </div>
         <a class="hidden cursor-pointer font-semibold md:block" routerLink="/">Home</a>
@@ -78,16 +82,20 @@
         <a class="hidden cursor-pointer font-semibold md:block" routerLink="/whiteboard">whiteboard</a>
         <a class="hidden cursor-pointer font-semibold md:block" routerLink="/tutor-profile">TutorProfile</a>
         <a class="hidden cursor-pointer font-semibold md:block" routerLink="/tutorprofile-edit">TutorLogin</a>
+        <button class="btn btn-primary" routerLink="/account/login"
+          routerLinkActive="active">Login</button>
+        <button class="btn btn-primary" (click)="logout()">Logout</button>
 
 
 
-        @if (user) {
+
+        <!-- @if (user) { -->
         <a class="hidden cursor-pointer font-semibold md:block" routerLink="/new-post">Write a post</a>
         <div class="dropdown dropdown-end hidden md:block">
           <div class="btn btn-circle btn-ghost" tabindex="0" role="button">
             <div class="avatar">
               <div class="w-11 rounded-full">
-                <img [src]="user.image" [alt]="user.name + '\'s avatar'" />
+                <img [src]="user?.image" [alt]="user?.name + '\'s avatar'" />
               </div>
             </div>
           </div>
@@ -96,13 +104,13 @@
               (click)="closeMenu()">
               <div class="avatar">
                 <div class="w-11 rounded-full">
-                  <img [src]="user.image" [alt]="user.name + '\'s avatar'" />
+                  <img [src]="user?.image" [alt]="user?.name + '\'s avatar'" />
                 </div>
               </div>
               <div>
                 <div class="font-semibold">Profile</div>
                 <div class="text-left text-xs text-opacity-50">
-                  {{ user.name }}
+                  {{ user?.name }}
                 </div>
               </div>
             </a>
@@ -111,7 +119,7 @@
             </li>
           </ul>
         </div>
-        } @else {
+        <!-- } @else { -->
         <!-- <button
             class="hidden cursor-pointer font-semibold md:block"
             (click)="toggleAuthModal()"
@@ -122,7 +130,7 @@
           (click)="toggleAuthModal()">
           Book Demo Class
         </button>
-        }
+        <!-- } -->
       </div>
     </nav>
   </div>

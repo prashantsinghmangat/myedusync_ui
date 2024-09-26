@@ -12,6 +12,9 @@ import { AuthService } from '../../core/services/auth.service';
 import { UserService } from '../../core/services/user.service';
 import { AuthModalComponent } from '../auth-modal/auth-modal.component';
 
+import { AccountService } from './../../login-auth/_services';
+import { User } from './../../login-auth/_models';
+
 @Component({
   selector: 'til-navbar',
   standalone: true,
@@ -22,22 +25,31 @@ import { AuthModalComponent } from '../auth-modal/auth-modal.component';
 })
 export class NavbarComponent {
   showAuthModalSig = signal(false);
-  user$ = this.userService.user$;
+  // user$ = this.userService.user$;
+
+  user?: User | null;
 
   constructor(
     private readonly authService: AuthService,
     private readonly userService: UserService,
     private readonly router: Router,
+    private accountService: AccountService,
     @Inject(PLATFORM_ID) private readonly platformId: string,
   ) {
+    this.accountService.user.subscribe(x => this.user = x);
+    console.log("log user: ", this.user)
     // this.loadUser();
   }
 
-  logout(): void {
-    this.userService.clearUser();
-    this.authService.logout().pipe(take(1)).subscribe();
-    this.router.navigate(['/']);
+  logout() {
+    this.accountService.logout();
   }
+
+  // logout(): void {
+  //   this.userService.clearUser();
+  //   this.authService.logout().pipe(take(1)).subscribe();
+  //   this.router.navigate(['/']);
+  // }
 
   toggleAuthModal(): void {
     this.showAuthModalSig.update((value) => !value);
