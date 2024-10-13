@@ -7,8 +7,9 @@
                 <h1>Theresa Flores</h1>
                 <p>Senior Teacher at Tiger School</p>
                 <div class="buttons">
-                    <button class="btn book">Edit Profile</button>
-                    <button class="btn share">Share</button>
+                    <button class="btn book" (click)="editProfile()">Edit Profile</button>
+                    <button class="btn share" onclick="shareProfile()">Share</button>
+
                 </div>
             </div>
         </div>
@@ -89,7 +90,8 @@
       <div class="course-section">
         <div class="course-header">
             <h2>Courses</h2>
-            <button class="create-course-btn">Create Course</button>
+            <button class="create-course-btn" (click)="createcourse()">Create Course</button>
+
         </div>
         <!-- Example of a single course card -->
         <div class="course-card">
