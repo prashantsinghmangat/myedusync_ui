@@ -1,0 +1,166 @@
+
+/* Container styling for overall layout */
+.container {
+    display: flex;
+    width: 1200px;  /* Set the container width */
+    height: 800px; /* Set the container height */
+    margin: 100px auto; /* Center the container on the page with vertical spacing */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
+    border-radius: 20px; /* Rounded corners for the container */
+}
+
+/* Styling for the left panel, complementary to the right panel */
+.left-panel {
+    flex-basis: 50%; /* Take half of the container width */
+    background: #eee; /* Light grey background for the left panel */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px; /* Consistent padding with the right panel */
+    color: #333; /* Text color that stands out against the light background */
+    font-family: 'Arial', sans-serif; /* Consistent font family */
+    text-align: center; /* Center the text inside the left panel */
+    border-radius: 20px 0 0 20px; /* Rounded corners on the left side */
+}
+
+/* Optional: Adding a background image to the left panel */
+.left-panel {
+    padding: 10px;
+    background: url('/assets/website/img/hero.jpg');
+}
+
+/* Styling for any headings or text within the left panel */
+.left-panel h1, .left-panel p {
+    font-size: 30px; /* Example font size, adjust as needed */
+    color: #ffffff; /* White color for readability against darker backgrounds */
+    margin: 10px 0; /* Space between text elements */
+}
+
+
+
+
+/* Styling for the registration form panel */
+.right-panel {
+    flex-basis: 50%; /* Take half of the container width */
+    background: #fff; /* White background for the form panel */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px; /* Padding inside the right panel */
+}
+
+/* Main registration form styling */
+/* Main registration form styling */
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;  // Ideal for forms
+    padding: 40px;
+    border-radius: 8px;
+    font-family: 'Roboto', 'Arial', sans-serif;  // Roboto is the material design font
+}
+
+.Form-heading {
+    font-size: 20px;
+    color: #191818;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;  // Stack the requirements
+}
+/* Style adjustments for inputs to make them more material-like */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);  // Inset shadow for depth
+    transition: border-color 0.3s, box-shadow 0.3s;  // Smooth transitions for interactions
+}
+
+/* On focus, elevate input fields */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #6200ea;  // A vibrant color on focus
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);  // Elevated shadow on focus
+}
+
+/* Styling for the password requirements to be subtle yet informative */
+.password-requirements {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 20px;
+    display: flex; // Ensuring it uses flexbox
+    flex-direction: column; // Stacking the requirements vertically
+    align-items: flex-start; // Aligns content to the left
+    width: 100%; // Ensures it spans the full width of its parent container
+    text-align: left; // Ensures the text inside is aligned to the left
+}
+
+
+.terms {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.terms input[type="checkbox"] {
+    accent-color: #6200ea;  // Use accent color for checkbox
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    background-color: #6200ea;  // Consistent accent color for buttons
+    font-size: 16px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s;  // Faster reaction time
+}
+
+button:hover {
+    background-color: darken(#6200ea, 10%);
+}
+
+.social-login {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;  // Use gap for spacing instead of margin-right
+}
+
+.or {
+    font-size: 14px;
+    color: #888;
+    margin: 20px 0;
+}
+
+.login {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.google, .apple {
+    flex: 1;
+    padding: 12px;
+    border-radius: 5px;
+}
+
+.google {
+    background-color: #dd4b39;
+}
+
+.apple {
+    background-color: #000;
+    color: white;  // Ensuring text color is always white for visibility
+}

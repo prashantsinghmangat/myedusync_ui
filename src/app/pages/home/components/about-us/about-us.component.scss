@@ -20,6 +20,11 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   margin-top: 90px;
+
+  @media (max-width: 768px) {
+    flex-direction: column; /* Stack content vertically for mobile */
+    text-align: center; /* Center-align content on mobile */
+  }
 }
 
 .img {
@@ -27,11 +32,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
 
-.img img {
-  max-width: 400px;
-  object-fit: cover;
+  img {
+    max-width: 400px;
+    object-fit: cover;
+
+    @media (max-width: 768px) {
+      max-width: 100%; /* Ensure the image takes full width on mobile */
+    }
+  }
 }
 
 .company-info {
@@ -40,15 +49,19 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    padding: 20px 0; /* Adjust padding for mobile */
+  }
 }
 
 h2 {
   font-size: 2.2rem;
   margin-bottom: 1rem;
-}
 
-.highlight {
-  color: #ffdc0e;
+  @media (max-width: 768px) {
+    font-size: 1.8rem; /* Adjust heading size for mobile */
+  }
 }
 
 p {
@@ -56,6 +69,10 @@ p {
   line-height: 1.6;
   color: #333;
   margin-top: 0.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem; /* Adjust paragraph size for mobile */
+  }
 }
 
 /* Team Section */
@@ -63,30 +80,38 @@ p {
   text-align: center;
   padding: 3rem 0;
   background-color: #ffffff;
-}
 
-.team-section h2 {
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 2rem;
+  h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 2rem;
+
+    @media (max-width: 768px) {
+      font-size: 2rem; /* Adjust heading size for mobile */
+    }
+  }
 }
 
 .team-container {
   display: flex;
-  justify-content: center; /* Center the content */
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 30px; /* Increased gap for better spacing */
+  gap: 30px;
+
+  @media (max-width: 768px) {
+    gap: 15px; /* Reduce the gap between cards on mobile */
+  }
 }
 
 .team-card {
   background: #ffffff;
-  border-radius: 15px; /* More rounded corners */
+  border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Deeper shadow for better card effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 250px; /* Adjusted width for better layout */
-  padding-bottom: 15px; /* Space at the bottom for content */
+  width: 250px;
+  padding-bottom: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -98,14 +123,18 @@ p {
 
   img {
     width: 100%;
-    height: 200px; /* Slightly taller images */
+    height: 200px;
     object-fit: cover;
-    border-top-left-radius: 15px; /* Match card's rounded corners */
-    border-top-right-radius: 15px; /* Match card's rounded corners */
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    @media (max-width: 768px) {
+      height: 180px; /* Adjust height slightly for mobile */
+    }
   }
 
   .team-info {
-    padding: 20px 10px; /* More padding for a cleaner look */
+    padding: 20px 10px;
     text-align: center;
 
     .team-name {
@@ -113,6 +142,10 @@ p {
       font-weight: 600;
       color: #333;
       margin-bottom: 5px;
+
+      @media (max-width: 768px) {
+        font-size: 1.2rem; /* Slight adjustment for smaller screens */
+      }
     }
 
     .team-designation {
@@ -123,11 +156,15 @@ p {
       align-items: center;
       justify-content: center;
       gap: 5px;
+
+      @media (max-width: 768px) {
+        font-size: 0.9rem; /* Adjust designation size for mobile */
+      }
     }
 
     .team-icon {
       font-size: 1.2rem;
-      color: #ffdc0e; /* Add a highlight color */
+      color: #ffdc0e;
     }
   }
 }
@@ -140,38 +177,31 @@ p {
   h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
+
+    @media (max-width: 768px) {
+      font-size: 2rem; /* Adjust heading size for mobile */
+    }
   }
 
   .services {
     display: flex;
-    justify-content: space-between; /* Align items in a single row */
-    flex-wrap: nowrap;
-    gap: 20px; /* Space between service boxes */
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    @media (max-width: 768px) {
+      flex-direction: column; /* Stack services vertically on mobile */
+      gap: 15px; /* Adjust gap for mobile */
+    }
 
     .service {
-      flex: 1; /* Allow each service box to take up equal space */
+      flex: 1;
       background-color: #ffffff;
       padding: 2rem;
       border-radius: 12px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border-left: 5px solid #007bff; /* Default border color */
-
-      &:nth-child(1) {
-        border-left-color: #ff5733; /* Unique color for the first service box */
-      }
-
-      &:nth-child(2) {
-        border-left-color: #33c3ff; /* Unique color for the second service box */
-      }
-
-      &:nth-child(3) {
-        border-left-color: #85e085; /* Unique color for the third service box */
-      }
-
-      &:nth-child(4) {
-        border-left-color: #ffd700; /* Unique color for the fourth service box */
-      }
+      border-left: 5px solid #007bff;
 
       &:hover {
         transform: translateY(-5px);
@@ -179,21 +209,26 @@ p {
       }
 
       h3 {
-        color: #222;
         font-size: 1.75rem;
         margin-bottom: 1rem;
+
+        @media (max-width: 768px) {
+          font-size: 1.5rem; /* Adjust heading size for mobile */
+        }
       }
 
       p {
         font-size: 1rem;
         color: #555;
         line-height: 1.6;
+
+        @media (max-width: 768px) {
+          font-size: 0.9rem; /* Adjust paragraph size for mobile */
+        }
       }
     }
   }
 }
-
-
 
 /* Call to Action Section */
 .cta {
@@ -204,13 +239,20 @@ p {
 
   h2 {
     font-size: 2rem;
-    color: #333;
+
+    @media (max-width: 768px) {
+      font-size: 1.8rem; /* Adjust heading size for mobile */
+    }
   }
 
   p {
     font-size: 1.125rem;
     color: #666;
     margin-bottom: 2rem;
+
+    @media (max-width: 768px) {
+      font-size: 1rem; /* Adjust paragraph size for mobile */
+    }
   }
 
   .cta-button {
@@ -220,10 +262,14 @@ p {
     font-size: 1rem;
     border-radius: 8px;
     text-decoration: none;
-    transition: background-color 0.3s ease;
 
     &:hover {
       background-color: #0056b3;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 0.9rem; /* Adjust button size for mobile */
+      padding: 0.6rem 1.5rem; /* Adjust padding for mobile */
     }
   }
 }
@@ -237,8 +283,10 @@ p {
 
   h2 {
     font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    color: #222;
+
+    @media (max-width: 768px) {
+      font-size: 2rem; /* Adjust heading size for mobile */
+    }
   }
 
   p {
@@ -247,7 +295,11 @@ p {
     line-height: 1.8;
     margin-bottom: 1rem;
     max-width: 800px;
-    margin: 0 auto; /* Center the content */
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+      font-size: 1rem; /* Adjust paragraph size for mobile */
+    }
   }
 }
 
@@ -256,6 +308,10 @@ p {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
+
+  @media (max-width: 768px) {
+    padding: 0 10px; /* Adjust container padding for mobile */
+  }
 }
 
 .text-center {

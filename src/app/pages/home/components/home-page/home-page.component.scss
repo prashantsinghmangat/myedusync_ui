@@ -1,0 +1,440 @@
+.hero-section {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 30px;
+  }
+}
+
+.hero-content {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 5%;
+
+  h1 {
+    font-size: 3rem;
+    color: #000000;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 2rem;
+    }
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: #a99b00;
+    margin-bottom: 20px;
+    font-weight: 300;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+
+  .action-btn {
+    background-color: #0f0f91;
+    color: #ffffff;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+
+    &:hover {
+      background-color: #cce4ff;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+      padding: 12px 20px;
+    }
+  }
+}
+
+.hero-image {
+  width: 50%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+  }
+}
+
+.teachers-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 30px;
+  margin-top: 50px;
+
+  h1 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+    font-family: 'Arial', sans-serif;
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.8rem;
+    }
+  }
+
+  .teachers-card-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    width: 100%;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding: 40px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      padding: 20px;
+    }
+  }
+
+  .teacher-card {
+    flex: 0 0 auto;
+    margin: 0 10px;
+    width: 380px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      margin: 10px 0;
+    }
+
+    .teacher-image {
+      position: relative;
+      width: 100%;
+      height: 290px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+      }
+
+      .teacher-overlay {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        color: hwb(0 100% 0%);
+        text-align: left;
+        font-size: 20px;
+      }
+
+      .favorite-icon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 28px;
+        color: #ffffff;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+      }
+    }
+
+    .teacher-info {
+      width: 100%;
+      padding: 20px;
+      text-align: left;
+
+      .top-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        .subject {
+          font-size: 16px;
+          color: #090909;
+          font-weight: bold;
+          margin-right: 10px;
+        }
+
+        .rating-and-reviews {
+          display: flex;
+          align-items: center;
+
+          .rating {
+            color: #ffdd57;
+            font-size: 16px;
+          }
+
+          .reviews {
+            font-size: 12px;
+            color: #666;
+            margin-left: 5px;
+          }
+        }
+      }
+
+      .details {
+        margin-top: 5px;
+        font-size: 14px;
+        color: #333;
+      }
+
+      .price {
+        font-size: 14px;
+        color: #de8383;
+        font-weight: bold;
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+
+// Feature Section
+$colors: (#f44336, #2196f3, #4caf50, #ffeb3b); // Example colors: red, blue, green, yellow
+
+.features-section {
+  margin-top: 20px;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.features-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+  padding: 50px;
+  margin: 0 auto;
+  height: 350px;
+  max-width: 1200px;
+
+  @media (max-width: 1024px) {
+    flex-wrap: wrap; // Ensure features wrap on tablet-sized screens
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column; // Stack features vertically on mobile screens
+    height: auto; // Adjust height for stacked layout
+  }
+}
+
+// Applying colors and hover shadows
+@for $i from 1 through length($colors) {
+  .feature:nth-child(#{$i}) {
+    background-color: nth($colors, $i);
+    color: #fff; // White text for better contrast
+
+    &:hover {
+      box-shadow: 0 10px 35px adjust-hue(nth($colors, $i), -20deg); // Hue shift for dynamic shadow color
+    }
+  }
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 23%;
+  padding: 20px;
+  height: 100%; // Ensuring all feature boxes are of equal height
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.25);
+  }
+
+  &:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+
+    @media (max-width: 768px) {
+      border-right: none; // Remove borders for mobile layout
+    }
+  }
+
+  @media (max-width: 1024px) {
+    width: 45%; // Ensure two features per row on tablets
+    margin-bottom: 20px; 
+  }
+
+  @media (max-width: 768px) {
+    width: 100%; // Make each feature full width on mobile
+    margin-bottom: 20px;
+  }
+
+  .icon-container {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    max-width: 90%;
+  }
+}
+
+// review section
+.testimonial-section {
+  margin-top: 0;
+  text-align: center;
+  padding: 50px 20px;
+
+  h1 {
+    color: #333;
+    margin-bottom: 80px;
+    font-size: 2.2rem;
+    font-family: 'Arial', sans-serif;
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+.testimonial-wrapper {
+  overflow-x: auto;
+  padding: 60px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    padding: 40px;
+  }
+}
+
+.testimonial-container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  gap: 20px;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.testimonial-card {
+  flex: 0 0 340px;
+  min-height: 350px;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  padding-top: 60px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
+  .testimonial-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #fff;
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .testimonial-content {
+    h3 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #444;
+      margin-bottom: 5px;
+    }
+
+    .role {
+      font-size: 1rem;
+      color: #666;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .rating {
+      color: #ffc107;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.6;
+      text-align: left;
+    }
+  }
+}
